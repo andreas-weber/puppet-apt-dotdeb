@@ -3,7 +3,8 @@ This module adds the dotdeb repository to apt.
 
 ##Dependencies
 
-None.
+- puppetlabs/stdlib *4.3.2*
+- puppetlabs/apt *1.6.0*
 
 ## Puppetfile
 
