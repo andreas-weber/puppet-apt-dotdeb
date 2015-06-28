@@ -21,16 +21,15 @@
 class aw_apt_dotdeb () {
   include apt
 
-  apt::key { 'dotdeb-key':
-    key        => '89DF5277',
-    key_source => 'http://www.dotdeb.org/dotdeb.gpg',
-  }
-
   apt::source { 'dotdeb-php':
     location          => 'http://packages.dotdeb.org',
+    release           => $lsbdistcodename,
     repos             => 'all',
     include_src       => true,
-    require           => Apt::Key['dotdeb-key'],
+    key               => {
+      'id'     => '6572BBEF1B5FF28B28B706837E3F070089DF5277',
+      'source' => 'http://www.dotdeb.org/dotdeb.gpg',
+    },
     notify            => Exec['apt_update']
   }
 }
