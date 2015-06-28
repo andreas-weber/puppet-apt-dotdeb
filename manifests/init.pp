@@ -30,6 +30,7 @@ class aw_apt_dotdeb () {
     location          => 'http://packages.dotdeb.org',
     repos             => 'all',
     include_src       => true,
-    require           => Apt::Key['dotdeb-key']
+    require           => Apt::Key['dotdeb-key'],
+    notify            => Exec['apt_update']
   }
 }
