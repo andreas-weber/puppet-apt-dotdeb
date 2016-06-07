@@ -23,7 +23,7 @@ class aw_apt_dotdeb () {
 
   apt::source { 'dotdeb-php':
     location          => 'http://packages.dotdeb.org',
-    release           => $lsbdistcodename,
+    release           => "${::lsbdistcodename}-php56",
     repos             => 'all',
     key               => {
       'id'     => '6572BBEF1B5FF28B28B706837E3F070089DF5277',
